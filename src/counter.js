@@ -4,27 +4,19 @@ import './App.css';
 
 
 class Counter extends React.Component {
-  // state = {
-  //   count: 0,
-  // }
-
   add(){
-    this.setState({
-      count: this.state.count + 1
-    })
+    this.props.dispatch({type: 'INCREMENT'});
   }
 
   remove(){
-    this.setState({
-      count: this.state.count - 1
-    })
+    this.props.dispatch({ type: 'DECREMENT'});
   }
 
   render() {
     return (
       <div className="App">
         <h2>Counter App</h2>
-        <p>The count is: {this.state.count}</p>
+        <p>The count is: {this.props.count}</p>
 
         <button onClick={()=> this.add()}>Add</button>
         <button onClick={()=> this.remove()}>Remove</button>
